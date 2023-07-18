@@ -1,0 +1,9 @@
+.wrapper {
+  margin: 10px; 
+}
+
+.wrapper button {
+  background: blue;
+  padding: 5px 10px;
+  border-radius: 10px;
+}

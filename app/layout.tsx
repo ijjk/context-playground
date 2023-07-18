@@ -1,6 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { ClientNestedContext } from './components/client/client-nested-context'
+import { ClientButton } from './components/client/client-button'
+import { ServerNestedContext } from './components/server/server-nested-context'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +19,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div style={{ border: '1px solid blue', padding: 5, marginBottom: 10 }}>
+          <h3>Root Layout</h3>
+        
+          <ClientNestedContext>
+            <ClientButton />
+          </ClientNestedContext>
+
+          <ServerNestedContext>
+            <ClientButton />
+          </ServerNestedContext>
+        </div>
+        
+        {children}
+      </body>
     </html>
   )
 }
